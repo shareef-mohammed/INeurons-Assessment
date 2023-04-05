@@ -14,7 +14,7 @@ const options = {
         },
         servers: [
             {
-                url:'http://localhost:7000/'
+                url:'http://localhost:4000/'
             }
         ]
     },
@@ -28,7 +28,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 const Connectdb = require('./config/dbConfig');
-const userRouter = require('./routes/userRouter')
+const userRouter = require('./routes/product.userRouter')
 
 Connectdb();
 
@@ -136,3 +136,5 @@ app.use('/', userRouter);
 app.listen(process.env.PORT, () => {
     console.log('Server Started')
 })
+
+module.exports = app;
